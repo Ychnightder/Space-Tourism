@@ -7,6 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 server/node_modules
+client/node_modules
+
+server/package.json
+server/package-lock.json
+
+client/package.json
+client/package-lock.json
+package.json
+package-lock.json
 node_modules
 dist
 dist-ssr
