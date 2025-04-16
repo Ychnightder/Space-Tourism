@@ -23,7 +23,21 @@ function createTable(db, tableName, schema) {
     })
 }
 
-function insertData(db, tableName, columns, values) {}
+function insertData(db, tableName, columns, values) {
+
+    const placeholders = columns.map(() => "?").join(", ");
+    const query  = `INSERT INTO ${tableName} (${columns.join(", ")}) VALUES (${placeholders})`;
+
+
+    const stmt = db.prepare(query);
+
+    values.forEach(valueSet => {
+        stmt.run(valueSet, err => {
+            if (err) console.error("Erreur insertion:", err);
+        });
+    });
+    stmt.finalize(() => console.log(`✅ Données insérées dans "${tableName}".`));
+}
 
 module.exports = {
     connectDB,
