@@ -1,4 +1,4 @@
-# React + Vite
+# Vue + Vite
 
 ![Design preview for the Space-Tourism coding challenge](./preview.jpg)
 
