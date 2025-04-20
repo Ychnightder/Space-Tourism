@@ -38,18 +38,18 @@ function formatIndex(i) {
     display: flex;
     align-items: flex-end;
 
-    .separator{
-      width: 473px;
-      height: 1px;
-      background-color: white;
-    }
-    .nav{
-      width: 830px;
-      height: 96px;
-      display: flex;
-      ul{
-        display: flex;
+      .separator{
+        width: 473px;
+        height: 1px;
+        background-color: white;
       }
+      .nav{
+        width: 830px;
+        height: 96px;
+        display: flex;
+          ul{
+            display: flex;
+          }
     }
 
   }
