@@ -8,8 +8,7 @@ const props = defineProps({
   }
 })
 
-const backgroundImage = ref('')
-
+const backgroundImage = ref('dd')
 function getImagesForPage(pageName) {
   if(!pageName){pageName = "home"}
   const lower = pageName.toLowerCase()
@@ -19,7 +18,6 @@ function getImagesForPage(pageName) {
     desktop: new URL(`../assets/images/${lower}/background-${lower}-desktop.jpg`, import.meta.url).href
   }
 }
-
 function updateBackground(pageName) {
   const width = window.innerWidth
   const images = getImagesForPage(pageName)
@@ -31,21 +29,19 @@ function updateBackground(pageName) {
     backgroundImage.value = images.desktop
   }
 }
-
 const resizeHandler = () => updateBackground(props.page)
 
 watch(() => props.page, (newPage) => {
   updateBackground(newPage)
 })
-
 onMounted(() => {
   updateBackground(props.page)
   window.addEventListener('resize', resizeHandler)
 })
-
 onBeforeUnmount(() => {
   window.removeEventListener('resize', resizeHandler)
 })
+
 </script>
 <template>
   <div class="background-container" :style="{ backgroundImage: `url(${backgroundImage})` }">
@@ -58,7 +54,6 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100vh;
   background-size: cover;
-  background-position: center;
   transition: background-image 0.5s ease-in-out;
 }
 </style>

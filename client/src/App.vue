@@ -1,5 +1,5 @@
 <template>
-  <ResponsiveBackground page="destination">
+  <ResponsiveBackground page="home">
     <Header />
 
   </ResponsiveBackground>
