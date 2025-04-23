@@ -13,9 +13,9 @@ function getImagesForPage(pageName) {
   if(!pageName){pageName = "home"}
   const lower = pageName.toLowerCase()
   return {
-    mobile: new URL(`../assets/images/${lower}/background-${lower}-mobile.jpg`, import.meta.url).href,
-    tablet: new URL(`../assets/images/${lower}/background-${lower}-tablet.jpg`, import.meta.url).href,
-    desktop: new URL(`../assets/images/${lower}/background-${lower}-desktop.jpg`, import.meta.url).href
+    mobile: new URL(`../../assets/images/${lower}/background-${lower}-mobile.jpg`, import.meta.url).href,
+    tablet: new URL(`../../assets/images/${lower}/background-${lower}-tablet.jpg`, import.meta.url).href,
+    desktop: new URL(`../../assets/images/${lower}/background-${lower}-desktop.jpg`, import.meta.url).href
   }
 }
 function updateBackground(pageName) {

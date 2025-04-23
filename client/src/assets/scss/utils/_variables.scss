@@ -5,9 +5,9 @@
 $primary-color : #0B0D17;
 $second-color : #D0D6F9;
 
-$primary-font:"Bellefair", serif;
-$second-font:"Barlow", serif;
-$third-font:"Barlow Condensed", sans-serif;
+$Bellefair:"Bellefair", serif;
+$Barlow:"Barlow", serif;
+$BarlowC:"Barlow Condensed", sans-serif;
 
 @mixin flex-center {
   display: flex;

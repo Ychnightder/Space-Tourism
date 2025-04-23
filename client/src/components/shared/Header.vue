@@ -23,12 +23,12 @@ const isMenuOpen = ref(false);
   <header class="header">
     <div class="wrapper-nav">
       <div class="logo">
-        <img src="../assets/images/shared/logo.svg" alt="star">
+        <img src="../../assets/images/shared/logo.svg" alt="star">
       </div>
 
       <div v-if="isMenuOpen" class="burger" @click="isMenuOpen = !isMenuOpen">
-        <img src="../assets/images/shared/icon-hamburger.svg" alt="icon-hamburger" />
-        <img src="../assets/images/shared/icon-close.svg" alt="icon-close" />
+        <img src="../../assets/images/shared/icon-hamburger.svg" alt="icon-hamburger" />
+        <img src="../../assets/images/shared/icon-close.svg" alt="icon-close" />
       </div>
       <nav class="nav ">
         <div class="separator"></div>
@@ -42,8 +42,8 @@ const isMenuOpen = ref(false);
   </header>
 </template>
 
-<style   lang="scss"  scoped>
-@import '../assets/scss/main.scss';
+<style   lang="scss"  >
+@import '../../assets/scss/main';
 
 
   .header{
@@ -52,7 +52,7 @@ const isMenuOpen = ref(false);
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    font-family: $third-font;
+    font-family: $BarlowC;
 
       .wrapper-nav{
         display: flex;
@@ -111,24 +111,28 @@ const isMenuOpen = ref(false);
                       content: '';
                       position: absolute;
                       bottom: -3px;
-                      width: 100%;
+                      width: 00%;
                       height: 3px;
                       background-color: rgba(255, 255, 255, 0.75);
                       transform: scaleX(0);
+                      transform: translateY(-4px);
                       transform-origin: center;
                       transition: all 0.3s ease;
 
                     }
                     &.active-nav {
-                      transform: translateY(-4px);
+                     transform: translateY(-4px);
                     }
 
                     &.active-nav::after {
+                      width: 100%;
                       background-color: white;
                       transform: scaleX(1);
                     }
                     &:hover::after {
+                      width: 100%;
                       transform: scaleX(1);
+                      transform: translateY(-4px);
                     }
                     .number{
                       margin:  0 15px 0 0;
@@ -139,35 +143,20 @@ const isMenuOpen = ref(false);
         }
       }
   }
-  @media (max-width: 1024px) {
-    .header{
-      height: 96px;
-    }
+//@media (max-width: 1024px) {
+//  .header {
+//    height: 96px;
+//    width: 100%;
+//  }
+//
+//  .header .separator {
+//    display: none;
+//  }
+//
+//  .header .nav ul {
+//    display: none;
+//  }
+//}
 
-    .wrapper-nav{
-        .logo{
-          width: 50%;
-        }
-
-        .nav{
-          width: 50%;
-          max-width: 450px;
-          ul{
-            background: #831e61;
-            margin: 0 150px 0 0;
-            li{
-              background: rgba(174, 174, 39, 0.71);
-            }
-
-
-          }
-
-      }
-      .separator{
-        display: none;
-      }
-    }
-
-  }
 
 </style>
