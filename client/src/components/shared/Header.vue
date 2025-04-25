@@ -15,7 +15,7 @@ function formatIndex(i) {
 
 
 const isMenuOpen = ref(false);
-
+const hoveredLink = ref(null)
 </script>
 
 
@@ -33,8 +33,14 @@ const isMenuOpen = ref(false);
       <nav class="nav ">
         <div class="separator"></div>
         <ul>
-          <li v-for="(link , i) in links" :key="link.name">
-            <a  :class="{'active-nav' : activeLink === link.name   } " @click="activeLink = link.name" href="#"><span class="number">{{ formatIndex(i) }} </span>{{ link.name.toUpperCase() }}</a>
+          <li v-for="(link , i) in links" :key="link.name" >
+            <router-link
+                :to="`/${link.name.toLowerCase() === 'home' ? '' : link.name.toLowerCase()}`"
+                :class="{'active-nav' : activeLink === link.name}"
+                @click="activeLink = link.name"
+            >
+              <span class="number">{{ formatIndex(i) }}</span>{{ link.name.toUpperCase() }}
+            </router-link>
           </li>
         </ul>
       </nav>
