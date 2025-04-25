@@ -26,7 +26,8 @@ import MainButton from "../components/home/mainButton.vue";
 body {
   width: 100%;
   height: 100vh;
-
+  margin: 0 ;
+  padding: 0;
 }
 .main{
   width: 100%;

@@ -13,9 +13,7 @@ function formatIndex(i) {
   return i.toString().padStart(2, '0');
 }
 
-
 const isMenuOpen = ref(false);
-const hoveredLink = ref(null)
 </script>
 
 
@@ -35,8 +33,8 @@ const hoveredLink = ref(null)
         <ul>
           <li v-for="(link , i) in links" :key="link.name" >
             <router-link
-                :to="`/${link.name.toLowerCase() === 'home' ? '' : link.name.toLowerCase()}`"
-                :class="{'active-nav' : activeLink === link.name}"
+                :to="`/${link.name.toLowerCase() === 'home' ? link.name.toLowerCase() : link.name.toLowerCase()}`"
+                :class="{'active-nav': $route.path.toLowerCase().includes(link.name.toLowerCase()) }"
                 @click="activeLink = link.name"
             >
               <span class="number">{{ formatIndex(i) }}</span>{{ link.name.toUpperCase() }}
