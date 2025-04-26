@@ -3,13 +3,13 @@ import ResponsiveBackground from "../components/shared/ResponsiveBackground.vue"
 import Header from "../components/shared/Header.vue";
 import {onMounted, ref} from "vue";
 import {fetchData} from "../utils/Fn";
+import Tilte from "../components/shared/Tilte.vue";
 
 
-const selectedDestination = ref(null);
+const selectedDestination = ref(0);
 const destinations = ref([]);
 onMounted( async () => {
  destinations.value = await fetchData('destinations');
-  console.log(destinations.value)
 })
 const selectDestination = (index) => {
   selectedDestination.value = index;
@@ -18,10 +18,10 @@ const selectDestination = (index) => {
 <template>
   <ResponsiveBackground page="Destination">
     <Header />
-    <h1 class="tilte-destination"><span>01</span>Pick your destination</h1>
+    <Tilte text="Pick your destination" number="01"/>
     <main class="main-destination">
       <div class="planet">
-        <img :src="`/assets/images${destinations[selectedDestination]?.image_webp}`" :alt="destinations[selectedDestination]?.name" />
+        <img :src="`src/assets/images${destinations[selectedDestination]?.image_png}`" :alt="destinations[selectedDestination]?.name" />
       </div>
       <div class="desciption">
         <div class="navigation">
@@ -51,21 +51,6 @@ const selectDestination = (index) => {
 <style  lang="scss">
 @import '../assets/scss/main';
 
-  .tilte-destination{
-    display: block;
-    margin: 75px 0 50px 166px;
-    font-size: 28px;
-    letter-spacing: 4.5px;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-family: $BarlowC;
-
-      span{
-        margin: 0 25px;
-        opacity: 0.25;
-      }
-  }
-
   .main-destination{
     width: 100%;
     height: 480px;
@@ -78,11 +63,14 @@ const selectDestination = (index) => {
       width: 445px;
       height: 445px;
       transition: all 0.3ms ease-out;
+
+      img{
+        margin: 25px 0  0 75px;
+      }
     }
 
     .desciption{
       width: 445px;
-      height: 472px;
       .navigation{
         display: flex;
         ul{
@@ -98,6 +86,39 @@ const selectDestination = (index) => {
             font-size: 16px;
             color: $second-color;
             letter-spacing: 2.7px;
+            position: relative;
+
+            &::after{
+              content: '';
+              position: absolute;
+              bottom: -3px;
+              left: 0;
+              right: 0;
+              width: 00%;
+              height: 3px;
+              background-color: rgba(255, 255, 255, 0.75);
+              transform: scaleX(0);
+              transform: translateY(-4px);
+              transform-origin: center;
+              transition: all 0.3s ease;
+
+            }
+            &.active-nav {
+              transform: translateY(-4px);
+              color: white;
+            }
+
+            &.active-nav::after {
+              width: 100%;
+              background-color: white;
+              transform: scaleX(1);
+            }
+            &:hover::after {
+              width: 100%;
+              transform: scaleX(1);
+              transform: translateY(-4px);
+            }
+
           }
         }
       }
@@ -109,7 +130,7 @@ const selectDestination = (index) => {
         font-weight: 400;
       }
       .para{
-        margin: 14px 0 60px  0;
+        margin: 14px 0 40px  0;
         font-family: $Barlow;
         font-size: 18px;
         line-height: 32px;
@@ -125,8 +146,6 @@ const selectDestination = (index) => {
         display: flex;
         align-items: center;
         div{
-          width: 170px;
-          height: 60px;
           margin-right: 68px;
 
           h3{
