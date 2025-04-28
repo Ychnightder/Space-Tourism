@@ -4,17 +4,16 @@ const { connectDB } = require("../utils/db");
 
 router.get("/", (req, res) => {
     const db = connectDB();
-    const query = "SELECT * FROM crew"; // requête SQL
+    const query = "SELECT * FROM crew";
 
-    db.all(query, (err, rows) => {
+    db.query(query, (err, results) => {
         if (err) {
             res.status(500).json({ error: err.message });
-        }else {
-            res.json(rows);
+        } else {
+            res.json(results);
         }
-        db.close();
-    })
-})
-
+        db.end();
+    });
+});
 
 module.exports = router;

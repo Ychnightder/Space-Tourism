@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "src/app.js",
   "scripts": {
-    "dev": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-api": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild src/app.js --bundle --platform=node --minify --outfile=dist/api.js",
+    "start": "node dist/api.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,11 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "mysql2": "^3.14.1",
+    "pg": "^8.15.6",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.3"
   }
 }
