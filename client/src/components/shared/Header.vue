@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import {onBeforeUnmount, onMounted, ref} from 'vue';
 
 const links = [
   { name: 'Home' },
@@ -12,8 +12,22 @@ const activeLink = ref('Home');
 function formatIndex(i) {
   return i.toString().padStart(2, '0');
 }
-
 const isMenuOpen = ref(false);
+const isMobile = ref(window.innerWidth < 768);
+
+function handleResize() {
+  isMobile.value = window.innerWidth < 768;
+  if (!isMobile.value) {
+    isMenuOpen.value = false;
+  }
+}
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
 </script>
 
 
@@ -24,11 +38,18 @@ const isMenuOpen = ref(false);
         <img src="../../assets/images/shared/logo.svg" alt="star">
       </div>
 
-      <div v-if="isMenuOpen" class="burger" @click="isMenuOpen = !isMenuOpen">
+      <div v-if="isMobile " class="burger" @click="isMenuOpen = true">
         <img src="../../assets/images/shared/icon-hamburger.svg" alt="icon-hamburger" />
-        <img src="../../assets/images/shared/icon-close.svg" alt="icon-close" />
       </div>
-      <nav class="nav ">
+
+
+<!-- "-->
+      <nav v-if="!isMobile || isMenuOpen"  class="nav" >
+<!--          -->
+        <div v-if="isMobile && isMenuOpen"  class="close" @click="isMenuOpen = false">
+          <img src="../../assets/images/shared/icon-close.svg" alt="icon-close" />
+        </div>
+
         <div class="separator"></div>
         <ul>
           <li v-for="(link , i) in links" :key="link.name" >
@@ -49,7 +70,6 @@ const isMenuOpen = ref(false);
 <style   lang="scss"  >
 @import '../../assets/scss/main';
 
-
   .header{
     width: 100%;
     height: 136px;
@@ -65,7 +85,7 @@ const isMenuOpen = ref(false);
         width: 100%;
         height: 97px;
 
-          .logo{
+         .logo{
             height: 100%;
             width: 60%;
             display: flex;
@@ -102,8 +122,10 @@ const isMenuOpen = ref(false);
               height: 100%;
               gap: 48px;
               margin: 0 110px;
+
                 a{
                   letter-spacing: 1.6px;
+                  font-size: 16px;
                   font-weight: 400;
                   transition: all 0.3s ease;
                   @include flex-center;
@@ -147,20 +169,122 @@ const isMenuOpen = ref(false);
         }
       }
   }
-//@media (max-width: 1024px) {
-//  .header {
-//    height: 96px;
-//    width: 100%;
-//  }
-//
-//  .header .separator {
-//    display: none;
-//  }
-//
-//  .header .nav ul {
-//    display: none;
-//  }
-//}
+@media (max-width: 1024px) {
+
+  .header {
+    height: 96px;
+    width: 100%;
+    justify-content: flex-end;
+
+    .wrapper-nav{
+      height: 100%;
+
+      .nav{
+        width: 450px;
 
 
+        .separator {
+          display: none;
+        }
+        ul {
+          gap: 34px;
+          margin: 0 50px;
+          a{
+            font-size: 14px;
+            .number{
+              display: none;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+
+ 
+
+}
+
+@media (max-width:  768px) {
+
+     .header{
+       .wrapper-nav{
+         width: 100%;
+         justify-content: space-around;
+         .logo {
+           justify-content: start;
+           img{
+             margin: 0;
+               width: 40px;
+               height: 40px;
+           }
+         }
+         .nav{
+           position: absolute;
+           width: 255px;
+           height: 100%;
+           bottom: 0;
+           right: 0;
+           flex-direction: column;
+
+           .close{
+             width: 100%;
+             height: 50px;
+             margin: 44px 0 60px 0;
+             display: flex;
+             align-items: center;
+             justify-content: flex-end;
+             img{
+               margin: 0 30px;
+             }
+           }
+           ul{
+              width: 100%;
+              height: auto;
+              flex-direction: column;
+             align-items: flex-end;
+
+              li{
+                justify-content: flex-start;
+                width: 85%;
+                height: 30px;
+              }
+              a{
+                width: 100%;
+                height: 100%;
+                font-size: 16px;
+                justify-content: normal;
+
+                &::after{
+                  content: '';
+                  position: absolute;
+                  right: 0;
+                  width: 3px;
+                  height: 100%;
+                  background-color: rgba(255, 255, 255, 0.75);
+                  transform-origin: center;
+                  transition: all 0.3s ease;
+                  opacity: 0;
+                }
+                &.active-nav {
+                  opacity: 1;
+                }
+
+                &.active-nav::after {
+                  height: 100%;
+                  width: 3px;
+                  background-color: white;
+                  opacity: 1;
+                }
+                .number{
+                  display: block;
+                }
+              }
+           }
+         }
+
+       }
+     }
+}
 </style>

@@ -4,7 +4,7 @@
   "description": "![Design preview for the Space-Tourism coding challenge](./preview.jpg)",
   "main": "eslint.config.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev-api --prefix server\""
   },
   "keywords": [],
   "author": "",
