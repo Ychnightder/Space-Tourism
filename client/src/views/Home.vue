@@ -28,6 +28,7 @@ body {
   height: 100vh;
   margin: 0 ;
   padding: 0;
+  overflow: hidden;
 }
 .main{
   width: 100%;
@@ -79,8 +80,52 @@ body {
       bottom: -10%;
     }
   }
-
+ 
 
 }
 
+@media (max-width: 1024px) {
+      .main{
+        height: 824px;
+        width: 100%;
+        margin-top: 100px;
+        flex-direction: column;
+        justify-content: center;
+
+          .main-txt{
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+            .para{
+          font-size: 16px;
+          font-family: $BarlowC;
+          color: $second-color;
+          font-weight: 400;
+          line-height: 28px;
+          width: 440px;
+          text-align: center;
+        }
+
+        .btn-main{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+            .btn{
+              position: relative;
+              right: 0;
+              top: 100px;
+            }
+        }
+      }
+
+      
+  }
 </style>

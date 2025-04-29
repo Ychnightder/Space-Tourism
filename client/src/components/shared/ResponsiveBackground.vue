@@ -55,6 +55,5 @@ onBeforeUnmount(() => {
   height: 100vh;
   background-size: cover;
   transition: background-image 0.5s ease-in-out;
-  position: relative;
 }
 </style>

@@ -227,6 +227,7 @@ onBeforeUnmount(() => {
            bottom: 0;
            right: 0;
            flex-direction: column;
+           z-index: 999;
 
            .close{
              width: 100%;
