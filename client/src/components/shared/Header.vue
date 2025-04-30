@@ -35,11 +35,11 @@ onBeforeUnmount(() => {
   <header class="header">
     <div class="wrapper-nav">
       <div class="logo">
-        <img src="../../../assets/images/shared/logo.svg" alt="star">
+        <img src="../../../public/assets/images/shared/logo.svg" alt="star">
       </div>
 
       <div v-if="isMobile " class="burger" @click="isMenuOpen = true">
-        <img src="../../../assets/images/shared/icon-hamburger.svg" alt="icon-hamburger" />
+        <img src="../../../public/assets/images/shared/icon-hamburger.svg" alt="icon-hamburger" />
       </div>
 
 
@@ -47,7 +47,7 @@ onBeforeUnmount(() => {
       <nav v-if="!isMobile || isMenuOpen"  class="nav" >
 <!--          -->
         <div v-if="isMobile && isMenuOpen"  class="close" @click="isMenuOpen = false">
-          <img src="../../../assets/images/shared/icon-close.svg" alt="icon-close" />
+          <img src="../../../public/assets/images/shared/icon-close.svg" alt="icon-close" />
         </div>
 
         <div class="separator"></div>
