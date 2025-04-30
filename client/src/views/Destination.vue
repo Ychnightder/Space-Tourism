@@ -21,7 +21,7 @@ const selectDestination = (index) => {
     <Tilte text="Pick your destination" number="01"/>
     <main class="main-destination">
       <div class="planet">
-        <img :src="`src/assets/images${destinations[selectedDestination]?.image_png}`" :alt="destinations[selectedDestination]?.name" />
+        <img :src="`/assets/images${destinations[selectedDestination]?.image_png}`" :alt="destinations[selectedDestination]?.name" />
       </div>
       <div class="desciption">
         <div class="navigation">

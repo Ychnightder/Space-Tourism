@@ -4,7 +4,7 @@ import Header from "../components/shared/Header.vue";
 import MainButton from "../components/home/mainButton.vue";
 </script>
 <template>
-  <ResponsiveBackground page="home">
+  <ResponsiveBackground class="ResponsiveBackground"  page="home">
     <Header />
     <main class="main">
       <div class="main-txt">
@@ -23,13 +23,7 @@ import MainButton from "../components/home/mainButton.vue";
 <style lang="scss">
 @import '../assets/scss/main.scss';
 
-body {
-  width: 100%;
-  height: 100vh;
-  margin: 0 ;
-  padding: 0;
-  overflow: hidden;
-}
+
 .main{
   width: 100%;
   height: 382px;
@@ -85,6 +79,7 @@ body {
 }
 
 @media (max-width: 1024px) {
+ 
       .main{
         height: 824px;
         width: 100%;
@@ -121,7 +116,6 @@ body {
             .btn{
               position: relative;
               right: 0;
-              top: 100px;
             }
         }
       }

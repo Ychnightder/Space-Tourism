@@ -28,7 +28,7 @@ const selectCrew = (index) => {
           <div class="pins" v-for="(crew , i) in crews" :key="i" @click="selectCrew(i)"  :class="{'activePins' : selectedCrew === i }"  ></div>
         </div>
       </div>
-      <img class="personal-crew" :src="`src/assets/images${crews[selectedCrew]?.image_png}`" :alt="crews[selectedCrew]?.name" />
+      <img class="personal-crew" :src="`/assets/images${crews[selectedCrew]?.image_png}`" :alt="crews[selectedCrew]?.name" />
     </main>
 </ResponsiveBackground>
 </template>
