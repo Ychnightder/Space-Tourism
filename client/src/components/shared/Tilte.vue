@@ -25,10 +25,27 @@
   font-weight: 400;
   text-transform: uppercase;
   font-family: $BarlowC;
-
   span{
     margin: 0 25px;
     opacity: 0.25;
+  }
+}
+@media (max-width: 1024px) {
+  .tilte-destination{
+    margin-left: 30px;
+    
+  }
+}
+
+@media (max-width:  768px) {
+  .tilte-destination{
+    font-size: 16px;
+    letter-spacing: 2.7px;
+    margin-left: 0px;
+    text-align: center;
+    span{
+    margin: 0 15px;
+  }
   }
 }
 </style>

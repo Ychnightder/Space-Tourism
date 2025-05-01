@@ -16,7 +16,7 @@ const selectDestination = (index) => {
 };
 </script>
 <template>
-  <ResponsiveBackground page="Destination">
+  <!-- <ResponsiveBackground page="Destination"> -->
     <Header />
     <Tilte text="Pick your destination" number="01"/>
     <main class="main-destination">
@@ -45,7 +45,7 @@ const selectDestination = (index) => {
         </div>
       </div>
     </main>
-  </ResponsiveBackground>
+  <!-- </ResponsiveBackground> -->
 </template>
 
 <style  lang="scss">
@@ -87,6 +87,12 @@ const selectDestination = (index) => {
             color: $second-color;
             letter-spacing: 2.7px;
             position: relative;
+            &:last-child{
+              margin-right: 0;
+            }
+            &:first-child{
+              margin-left: 0;
+            }
 
             &::after{
               content: '';
@@ -134,6 +140,8 @@ const selectDestination = (index) => {
         font-family: $Barlow;
         font-size: 18px;
         line-height: 32px;
+        color: $second-color; 
+        font-weight: 200;
       }
       .line{
         width: 100%;
@@ -169,4 +177,127 @@ const selectDestination = (index) => {
 
     }
   }
+
+  @media (max-width: 1024px) {
+    .main-destination{
+      height: auto;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .planet{
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        margin:  30px 0 0 0;
+
+        img{
+          width: 100%;
+          height: 100%;
+          margin: 0;
+        }
+      }
+      .desciption{
+        width: 100%;
+        margin-top: 30px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        ul{
+          margin: 30px 0 0 0;
+          justify-content: center;
+        }
+
+        .para{
+          margin: 14px 0px 40px  0px;
+          height: 84px;
+           text-align: center;
+          font-size: 16px ;
+          width:55%;
+        }
+
+        .line{
+          width: 575px;
+          display: inline-block;
+
+        }
+
+        .info{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          div{
+            margin-right: 68px;
+            text-align: center;
+            &:last-child{
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+@media (max-width:  768px) {
+
+  .main-destination{
+    width: 100%;
+    height: auto;
+
+    .planet{
+      width: 170px;
+      height: 170px;
+      margin: 0;
+      img{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+    }
+    .desciption{
+      ul{
+        height: 28px;
+      }
+      
+      .name-planet{
+        font-size: 56px;
+        margin: 20px 0;
+      }
+      
+      .para{
+        width:50% ;
+        max-width:   100%;
+        height: auto;
+        font-size: 15px;
+        line-height: 25px;
+      }
+
+      .line{
+        width: 327px;
+      }
+
+
+      .info{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        div{
+          margin-right: 0;
+          margin-bottom: 20px;
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

@@ -20,7 +20,7 @@ const selectTechnology = (index) => {
 </script>
 
 <template>
-  <ResponsiveBackground page="technology">
+  <!-- <ResponsiveBackground page="technology">  -->
     <Header />
     <Tilte text="SPACE LAUNCH 101" number="03"/>
 
@@ -41,7 +41,7 @@ const selectTechnology = (index) => {
       </div>
      
     </main>
-  </ResponsiveBackground>
+  <!-- </ResponsiveBackground> -->
 </template>
 
 <style  lang="scss">

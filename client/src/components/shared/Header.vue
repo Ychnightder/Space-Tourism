@@ -223,7 +223,7 @@ onBeforeUnmount(() => {
            }
          }
          .nav{
-           position: absolute;
+           position: fixed;
            width: 255px;
            height: 100%;
            bottom: 0;
