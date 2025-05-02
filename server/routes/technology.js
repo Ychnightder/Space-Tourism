@@ -3,17 +3,17 @@ const router = express.Router();
 const { connectDB } = require("../utils/db");
 
 router.get("/", (req, res) => {
-    const db = connectDB();
-    const query = "SELECT * FROM technology";
+  const db = connectDB();
+  const query = "SELECT * FROM technology";
 
-    db.query(query, (err, results) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else {
-            res.json(results);
-        }
-        db.end();
-    });
+  db.query(query, (err, results) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.json(results);
+    }
+    db.end();
+  });
 });
 
 module.exports = router;

@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
   <div class="explore-button">
@@ -9,7 +7,7 @@
 </template>
 
 <style lang="scss">
-@import '../../assets/scss/main.scss';
+@import "../../assets/scss/main.scss";
 
 .explore-button {
   position: relative;
@@ -50,17 +48,15 @@
     height: 100px;
     font-size: 20px;
     letter-spacing: 1.25px;
-
-    
   }
 
   .explore-button:hover::before {
-  transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(0.5);
   }
 }
 
 @media (max-width: 1024px) {
-   .explore-button {
+  .explore-button {
     width: 245px;
     height: 245px;
     font-size: 24px;
@@ -70,5 +66,4 @@
     transform: translate(-50%, -50%) scale(0.7);
   }
 }
-
 </style>
