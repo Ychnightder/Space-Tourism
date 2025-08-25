@@ -77,7 +77,7 @@ import MainButton from "../components/home/mainButton.vue";
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1370px) {
   .main {
     width: 100%;
     height: auto;

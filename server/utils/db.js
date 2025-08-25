@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 const DB_CONFIG = {
   host: "mysql-ychnightder.alwaysdata.net",
   user: "401996",
-  password: "Ychnightder7@",
+  password: "",
   database: "ychnightder_spacetourism",
   port: 3306,
 };
