@@ -9,6 +9,7 @@ const selectedDestination = ref(0);
 const destinations = ref([]);
 onMounted(async () => {
   destinations.value = await fetchData("destinations");
+  console.log(destinations.value);
 });
 const selectDestination = (index) => {
   selectedDestination.value = index;
@@ -21,7 +22,7 @@ const selectDestination = (index) => {
   <main class="main-destination">
     <div class="planet">
       <img
-        :src="`/assets/images${destinations[selectedDestination]?.image_png}`"
+        :src="destinations[selectedDestination]?.images.png"
         :alt="destinations[selectedDestination]?.name"
       />
     </div>

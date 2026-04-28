@@ -35,11 +35,11 @@ const selectCrew = (index) => {
         ></div>
       </div>
     </div>
-    <img
-      class="personal-crew"
-      :src="`/assets/images${crews[selectedCrew]?.image_png}`"
-      :alt="crews[selectedCrew]?.name"
-    />
+      <img
+        class="personal-crew"
+        :src="crews[selectedCrew]?.images.png"
+        :alt="crews[selectedCrew]?.name"
+      />
   </main>
   <!-- </ResponsiveBackground> -->
 </template>

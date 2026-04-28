@@ -63,11 +63,7 @@ onUnmounted(() => {
 
     <img
       class="technology-img"
-      :src="`/assets/images${
-        windowWidth >= 1024
-          ? technologies[selectedTechnology]?.image_portrait
-          : technologies[selectedTechnology]?.image_landscape
-      }`"
+      :src="windowWidth >= 1024 ? technologies[selectedTechnology]?.images.portrait : technologies[selectedTechnology]?.images.landscape"
       :alt="technologies[selectedTechnology]?.name"
     />
   </main>
